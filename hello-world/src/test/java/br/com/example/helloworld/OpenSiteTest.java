@@ -33,7 +33,8 @@ public class OpenSiteTest {
 		driver.findElement(By.id("inpSenha")).clear();
 		driver.findElement(By.id("inpSenha")).sendKeys("Teste1234");
 		driver.findElement(By.id("btnOnSubmit")).click();
-		driver.findElement(By.xpath("/html/body/app-dashboard/div/div/nav/ul/li[3]/a")).click();
+		
+		// driver.findElement(By.xpath("/html/body/app-dashboard/div/div/nav/ul/li[3]/a")).click();
 		// driver.findElement(By.id("btnNavBar")).click();
 		/*
 		 * try { Thread.sleep(10000); } catch (InterruptedException e) { // TODO
