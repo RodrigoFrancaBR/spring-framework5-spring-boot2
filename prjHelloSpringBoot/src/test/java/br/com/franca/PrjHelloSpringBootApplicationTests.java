@@ -1,4 +1,4 @@
-package br.com.example.helloworld;
+package br.com.franca;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class HelloWorldApplicationTests {
+public class PrjHelloSpringBootApplicationTests {
 
 	@Test
 	public void contextLoads() {
