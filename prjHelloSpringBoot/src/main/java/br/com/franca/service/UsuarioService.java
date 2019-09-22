@@ -26,16 +26,20 @@ public class UsuarioService {
 	}
 
 	public Usuario buscar(Integer id) throws ObjectNotFoundException {
-
-		// validações de negocios
-
+		// validações de negocios		
 		Optional<Usuario> usuario = repository.findById(id);
 		return usuario.orElseThrow(() -> new ObjectNotFoundException(
 				"Objeto não encontrado! Id: " + id + ", Tipo:" + Usuario.class.getName()));
 	}
 
 	public Usuario salvar(Usuario usuario) {
+		// usuario.setId(null);
 		return repository.save(usuario);
 		 
+	}
+
+	public Usuario alterar(Usuario usuario) throws ObjectNotFoundException {
+		buscar(usuario.getId());
+		return repository.save(usuario);		
 	}
 }
