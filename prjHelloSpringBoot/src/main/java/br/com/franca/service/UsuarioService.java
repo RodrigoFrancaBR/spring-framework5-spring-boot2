@@ -1,10 +1,12 @@
 package br.com.franca.service;
 
+import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import br.com.franca.domain.Usuario;
 import br.com.franca.repositories.UsuarioRepository;
@@ -23,12 +25,17 @@ public class UsuarioService {
 		return repository.findAll();
 	}
 
-	public Usuario buscar(Integer id) throws ObjectNotFoundException  {
+	public Usuario buscar(Integer id) throws ObjectNotFoundException {
 
 		// validações de negocios
-		
+
 		Optional<Usuario> usuario = repository.findById(id);
-		return usuario.orElseThrow(
-				() -> new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo:" + Usuario.class.getName()));
+		return usuario.orElseThrow(() -> new ObjectNotFoundException(
+				"Objeto não encontrado! Id: " + id + ", Tipo:" + Usuario.class.getName()));
+	}
+
+	public Usuario salvar(Usuario usuario) {
+		return repository.save(usuario);
+		 
 	}
 }
