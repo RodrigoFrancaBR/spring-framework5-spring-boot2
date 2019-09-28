@@ -6,6 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.support.ResourceBundleMessageSource;
 
 import br.com.franca.domain.Usuario;
 import br.com.franca.repositories.UsuarioRepository;
@@ -28,6 +29,16 @@ public class PrjHelloSpringBootApplication {
 				return u;
 			}).map(v -> repository.save(v)).forEach(System.out::println);
 		};
+	}
+	
+	@Bean
+	public ResourceBundleMessageSource messageSource() {
+
+	    ResourceBundleMessageSource source = new ResourceBundleMessageSource();
+	    source.setBasenames("mesagens"); 
+	    // source.setUseCodeAsDefaultMessage(true);
+
+	    return source;
 	}
 
 }
