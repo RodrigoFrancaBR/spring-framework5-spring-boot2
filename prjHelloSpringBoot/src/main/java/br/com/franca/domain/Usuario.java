@@ -4,6 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 public class Usuario {
@@ -11,8 +14,14 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+		
+	// usando o arquivo de msg
+	@NotBlank(message = "{chave.not.blank}")
 
-	private String chave;
+	// sem arquivo de msg
+	@Length(min = 2, max = 10, message = "Minimo de 6 e 10 no máximo")
+	private String chave;	
+	
 	private String senha;
 
 	public Integer getId() {

@@ -17,6 +17,7 @@ public class PrjHelloSpringBootApplication {
 		SpringApplication.run(PrjHelloSpringBootApplication.class, args);
 	}
 
+	// Inserindo dados no h2
 	@Bean
 	CommandLineRunner init(UsuarioRepository repository) {
 		return args -> {

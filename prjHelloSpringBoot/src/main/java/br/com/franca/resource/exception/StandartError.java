@@ -1,5 +1,10 @@
 package br.com.franca.resource.exception;
-
+	
+/**
+ *  
+ * @author rfranca
+ * Responsável por montar uma exception padrão
+ */
 public class StandartError {
 
 	private Integer status;
